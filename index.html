@@ -2,25 +2,16 @@
     <button onclick="openStuff();">Click here to go somewhere else!</button>
 
 
-    <script type="text/javascript">
-    var links = [
-    "github.com/HerrPa/HerrPa.github.io/raw/main/3.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/5.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/7.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/8.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/9.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/13.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/15.pdf",
-    "github.com/HerrPa/HerrPa.github.io/raw/main/16.pdf"];
-
-openStuff = function () {
-    // get a random number between 0 and the number of links
-    var randIdx = Math.random() * links.length;
-    // round it, so it can be used as array index
-    randIdx = parseInt(randIdx, 10);
-    // construct the link to be opened
-    var link = 'https://' + links[randIdx];
-    // open it in a new window / tab (depends on browser setting)
-    window.open(link);
-};    </script>
+    <script>
+    const max = 8; // the largest number in your PDF filename
+    const min = 1;
+    const rnd = Math.floor(Math.random() * (max - min + 1) + min);
+    const pdf = document.createElement("embed");
+    pdf.width="2000px"; // or what you want
+    pdf.height="1500px";
+    pdf.src=rnd+".pdf"
+    window.addEventListener("load",function() {
+    document.body.appendChild(pdf);
+});
+</script>
 </html>
