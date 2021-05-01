@@ -1,19 +1,22 @@
 <html>
-<body>
-<h1>The script element</h1>
-
-<p id="demo"></p>
-
-<script>
-document.getElementById("demo").innerHTML = "Hello JavaScript!";
-</script> 
-
-<p> </p>
-<h1>The button Element</h1>
-
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+    <button onclick="openStuff();">Click here to go somewhere else!</button>
 
 
-</body>
+    <script type="text/javascript">
+    var links = [
+    "bbc.com",
+    "google.com",
+    "youtube.com",
+    "facebook.com"];
 
+openStuff = function () {
+    // get a random number between 0 and the number of links
+    var randIdx = Math.random() * links.length;
+    // round it, so it can be used as array index
+    randIdx = parseInt(randIdx, 10);
+    // construct the link to be opened
+    var link = 'http://' + links[randIdx];
+    // open it in a new window / tab (depends on browser setting)
+    window.open(link);
+};    </script>
 </html>
