@@ -1,12 +1,18 @@
 <html>
+
     <script>
     const max = 17; // the largest number in your PDF filename
     const min = 1;
     const rnd = Math.floor(Math.random() * (max - min + 1) + min);
     const pdf = document.createElement("embed");
+    var str = "Dies ist Knobelaufgabe Nummer " + rnd
+    var str2 = str.bold()
+    var str3 = str2.fontsize(6);
     pdf.width="1000px"; // or what you want
     pdf.height="750px";
     pdf.src=rnd+".pdf"
+    document.write('<h2>' + str2 + '</h2>')
+    document.write("<br><br><br>")
 
     window.addEventListener("load",function() {
     document.body.appendChild(pdf);
