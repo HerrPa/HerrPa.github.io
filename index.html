@@ -1,10 +1,7 @@
 <html>
 <body>
-
-<input type="submit" value='Tipp freischalten' id="submitButton" disabled="disabled" onclick= "hilfe()"/>
-   
-</body>
-    <script>
+<input type="submit" value='Tipp freischalten' id="submitButton" disabled="disabled" onclick= "hilfe()"/> 
+<script>
 	var countdownNum = 7;
 	const max = 17; // the largest number in your PDF filename
 	const min = 1;
@@ -21,16 +18,12 @@
 
  	pdf2.width="1000px"; // or what you want
 	pdf2.height="750px";
-	pdf2.src="2.pdf"
+	pdf2.src="2h.pdf"
 
 	document.write('<h2>' + str2 + '</h2>')
-	document.write("<br><br><br>")
-
-	window.addEventListener("load",function() {
-	document.body.appendChild(pdf);});
 
     window.onload=function() {
-      incTimer();
+      incTimer(); document.body.appendChild(pdf);
     }
 
 
@@ -57,5 +50,10 @@
 
 
 
+
+
+   
+   
 </script>
+</body>
 </html>
