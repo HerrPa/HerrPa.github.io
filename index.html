@@ -2,7 +2,7 @@
 <body>
 <input type="submit" value='Tipp freischalten' id="submitButton" disabled="disabled" onclick= "hilfe()"/> 
 <script>
-	var countdownNum = 7;
+	var countdownNum = 2;
 	const max = 17; // the largest number in your PDF filename
 	const min = 1;
 	const rnd = Math.floor(Math.random() * (max - min + 1) + min);
@@ -20,11 +20,15 @@
 	pdf2.height="750px";
 	pdf2.src="2h.pdf"
 
+
+
 	document.write('<h2>' + str2 + '</h2>')
 
     window.onload=function() {
       incTimer(); document.body.appendChild(pdf);
     }
+
+
 
 
     function incTimer(){
@@ -43,17 +47,22 @@
     }
 
    function hilfe(){
-	document.body.appendChild(pdf2);
+alert(pdf2.src);
+//var return = existsFile(pdf2.src);
+//alert(return);
+	try{document.body.appendChild(pdf2);
+	} catch(error){alert('fehler');}
 
     }
-
-
-
-
-
-
    
-   
+function existsFile(url) {
+   var http = new XMLHttpRequest();
+   http.open('HEAD', url, false);
+   http.send();
+   return http.status!=404;
+}   
+
+
 </script>
 </body>
 </html>
