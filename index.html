@@ -2,7 +2,7 @@
 <body>
 <input type="submit" value='Tipp freischalten' id="submitButton" disabled="disabled" onclick= "hilfe()"/> 
 <script>
-	var countdownNum = 7;
+	var countdownNum = 4;
 	const max = 17; // the largest number in your PDF filename
 	const min = 1;
 	const rnd = Math.floor(Math.random() * (max - min + 1) + min);
@@ -33,7 +33,7 @@
           countdownNum--;
           minuten = Math.floor(countdownNum/60);
           sekunden = countdownNum-(minuten*60);
-          document.getElementById('submitButton').value = 'Zeit bis zum Tipp: ' + minuten + ' Minuten und ' + sekunden + ' Sekunden.';
+          document.getElementById('submitButton').value = 'Zeit bis zur Lösung: ' + minuten + ' Minuten und ' + sekunden + ' Sekunden.';
           incTimer();
         } else {
           document.getElementById('submitButton').disabled = null;
