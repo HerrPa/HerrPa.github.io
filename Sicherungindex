@@ -1,0 +1,59 @@
+<html>
+<body>
+<input type="submit" value='Tipp freischalten' id="submitButton" disabled="disabled" onclick= "hilfe()"/> 
+<script>
+	var countdownNum = 10;
+	const max = 17; // the largest number in your PDF filename
+	const min = 1;
+	const rnd = Math.floor(Math.random() * (max - min + 1) + min);
+	const pdf = document.createElement("embed");
+	const pdf2 = document.createElement("embed");
+ 	var str = "Dies ist Knobelaufgabe Nummer " + rnd
+ 	var str2 = str.bold()
+ 	var str3 = str2.fontsize(6);
+
+ 	pdf.width="1000px"; // or what you want
+	pdf.height="750px";
+	pdf.src="Expertenaufgabe.pdf"
+
+ 	pdf2.width="1000px"; // or what you want
+	pdf2.height="750px";
+	pdf2.src="Loesung.pdf"
+
+
+
+    window.onload=function() {
+      incTimer(); document.body.appendChild(pdf);
+    }
+
+
+    function incTimer(){
+      setTimeout (function(){
+        if(countdownNum != 0){
+          countdownNum--;
+          minuten = Math.floor(countdownNum/60);
+          sekunden = countdownNum-(minuten*60);
+          document.getElementById('submitButton').value = 'Zeit bis zur Lösung: ' + minuten + ' Minuten und ' + sekunden + ' Sekunden.';
+          incTimer();
+        } else {
+          document.getElementById('submitButton').disabled = null;
+          document.getElementById('submitButton').value = 'Lösung freischalten';
+        }
+      },1000);
+    }
+
+   function hilfe(){
+	document.body.appendChild(pdf2);
+
+    }
+
+
+
+
+
+
+   
+   
+</script>
+</body>
+</html>
